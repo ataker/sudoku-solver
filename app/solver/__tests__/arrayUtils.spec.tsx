@@ -1,4 +1,4 @@
-import { arrayDifference } from '../utils/arrayUtils';
+import { arrayDifference, spliceAtValue } from '../utils/arrayUtils';
 
 describe('arrayDifference', () => {
   test('returns array with length of 1 when array difference is 1', () => {
@@ -30,5 +30,23 @@ describe('arrayDifference', () => {
     const arr2 = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
     expect(arrayDifference(arr1, arr2)).toStrictEqual([]);
+  })
+})
+
+describe('spliceAtValue', () => {
+  test('empty array when arrays are identical', () => {
+    const arr = [1, 2, 3, 4, 0, 6, 7, 8, 9],
+          value = 0,
+          newValue = [2,5]
+
+    expect(spliceAtValue(arr, value, newValue)).toStrictEqual([1, 2, 3, 4, [2,5], 6, 7, 8, 9]);
+  })
+
+  test('empty array when arrays are identical', () => {
+    const arr = [1, 0, 3, 4, 0, 6, 7, 8, 9],
+          value = 0,
+          newValue = [2,5]
+
+    expect(spliceAtValue(arr, value, newValue)).toStrictEqual([1, [2, 5], 3, 4, [2,5], 6, 7, 8, 9]);
   })
 })

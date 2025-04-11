@@ -1,3 +1,5 @@
+import { arrayDifference, spliceAtValue } from "../utils/arrayUtils";
+
 // so here's my first thought
 // return an array that looks like an inverse of the numVals
 // numVals is current filled in squares with empty squares as 0
@@ -5,8 +7,10 @@
 
 const POSSIBLE_NUMBERS = [1,2,3,4,5,6,7,8,9];
 
-export default function checkRow ({numVals}:{numVals:number[]}) {
+export function checkRow (row:number[]) {
   // get difference between possible answers and what was sent in
-  const rr = numVals
+  const possibleAnswers = arrayDifference(POSSIBLE_NUMBERS, row);
+
+  return spliceAtValue(row, 0, possibleAnswers);
 }
 
