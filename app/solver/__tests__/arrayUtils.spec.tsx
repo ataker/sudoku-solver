@@ -1,4 +1,4 @@
-import { arrayDifference, spliceAtValue } from '../utils/arrayUtils';
+import { arrayDifference, replaceAtValue } from '../utils/arrayUtils';
 
 describe('arrayDifference', () => {
   test('returns array with length of 1 when array difference is 1', () => {
@@ -33,20 +33,28 @@ describe('arrayDifference', () => {
   })
 })
 
-describe('spliceAtValue', () => {
-  test('empty array when arrays are identical', () => {
+describe('replaceAtValue', () => {
+  test('replaces one value', () => {
     const arr = [1, 2, 3, 4, 0, 6, 7, 8, 9],
           value = 0,
-          newValue = [2,5]
+          newValue = [2,5];
 
-    expect(spliceAtValue(arr, value, newValue)).toStrictEqual([1, 2, 3, 4, [2,5], 6, 7, 8, 9]);
+    expect(replaceAtValue(arr, value, newValue)).toStrictEqual([1, 2, 3, 4, [2,5], 6, 7, 8, 9]);
   })
 
-  test('empty array when arrays are identical', () => {
+  test('replaces multiple values', () => {
     const arr = [1, 0, 3, 4, 0, 6, 7, 8, 9],
           value = 0,
-          newValue = [2,5]
+          newValue = [2,5];
 
-    expect(spliceAtValue(arr, value, newValue)).toStrictEqual([1, [2, 5], 3, 4, [2,5], 6, 7, 8, 9]);
+    expect(replaceAtValue(arr, value, newValue)).toStrictEqual([1, [2, 5], 3, 4, [2,5], 6, 7, 8, 9]);
+  })
+
+  test('returns same value when value and newValue are equal', () => {
+    const arr = [1, 0, 3, 4, 0, 6, 7, 8, 9],
+          value = 0,
+          newValue = 0;
+
+    expect(replaceAtValue(arr, value, newValue)).toStrictEqual([1, 0, 3, 4, 0, 6, 7, 8, 9]);
   })
 })

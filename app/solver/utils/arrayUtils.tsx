@@ -3,7 +3,8 @@ export function arrayDifference (arr1:number[], arr2:number[]) {
   return arr1.filter((val) => !arr2.includes(val))
 }
 
-export function spliceAtValue(arr:number[], value:number, newValue:any) {
+// replaces value with newValue in array
+export function replaceAtValue(arr:number[], value:number, newValue:any) {
   if (value === newValue) {
     // let's not get into an infinite loop
     return arr;

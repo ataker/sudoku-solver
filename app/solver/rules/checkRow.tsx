@@ -1,4 +1,4 @@
-import { arrayDifference, spliceAtValue } from "../utils/arrayUtils";
+import { arrayDifference, replaceAtValue } from "../utils/arrayUtils";
 
 // so here's my first thought
 // return an array that looks like an inverse of the numVals
@@ -11,6 +11,6 @@ export function checkRow (row:number[]) {
   // get difference between possible answers and what was sent in
   const possibleAnswers = arrayDifference(POSSIBLE_NUMBERS, row);
 
-  return spliceAtValue(row, 0, possibleAnswers);
+  return replaceAtValue(row, 0, possibleAnswers);
 }
 
