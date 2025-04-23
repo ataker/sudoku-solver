@@ -7,7 +7,7 @@ import { arrayDifference, replaceAtValue } from "../utils/arrayUtils";
 
 const POSSIBLE_NUMBERS = [1,2,3,4,5,6,7,8,9];
 
-export function checkRow (row:number[]) {
+export function noteRow (row:number[]) {
   // get difference between possible answers and what was sent in
   const possibleAnswers = arrayDifference(POSSIBLE_NUMBERS, row);
 
