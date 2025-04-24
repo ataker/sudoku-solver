@@ -1,4 +1,8 @@
-import { arrayDifference, replaceAtValue } from '../utils/arrayUtils';
+import { 
+  arrayDifference, 
+  arrayUnique,
+  replaceAtValue 
+} from '../utils/arrayUtils';
 
 describe('arrayDifference', () => {
   test('returns array with length of 1 when array difference is 1', () => {
@@ -30,6 +34,39 @@ describe('arrayDifference', () => {
     const arr2 = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
     expect(arrayDifference(arr1, arr2)).toStrictEqual([]);
+  })
+})
+
+describe('arrayUnique', () => {
+  test('returns array with length of 1 when array difference is 1', () => {
+    const arr1 = [1, 2, 3, 4];
+    const arr2 = [1, 2, 3];
+
+    expect(arrayUnique(arr1, arr2)).toStrictEqual([4]);
+  })
+  test('returns array with length of 3 when array difference is 3', () => {
+    const arr1 = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+    const arr2 = [1, 2, 3, 6, 8, 9];
+
+    expect(arrayUnique(arr1, arr2)).toStrictEqual([4, 5, 7]);
+  })
+  test('returns any values in arr2 that are not in arr1', () => {
+    const arr1 = [1];
+    const arr2 = [1, 2, 3, 6, 8, 9];
+
+    expect(arrayUnique(arr1, arr2)).toStrictEqual([ 2, 3, 6, 8, 9]);
+  })
+  test('returns any values unique in either array', () => {
+    const arr1 = [1, 2, 3, 4];
+    const arr2 = [1, 2, 3, 6, 7];
+
+    expect(arrayUnique(arr1, arr2)).toStrictEqual([4,6,7]);
+  })
+  test('empty array when arrays are identical', () => {
+    const arr1 = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+    const arr2 = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+    expect(arrayUnique(arr1, arr2)).toStrictEqual([]);
   })
 })
 

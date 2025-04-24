@@ -3,6 +3,31 @@ export function arrayDifference (arr1:number[], arr2:number[]) {
   return arr1.filter((val) => !arr2.includes(val))
 }
 
+// return values unique in either array
+export function arrayUnique (arr1:number[], arr2:number[]) {
+  const combinedArr = [...arr1, ...arr2];
+  // some silly thoughts
+  // sort array then step through, if arr[n] != arr[n+1]
+  // with a step of 2
+  // although we want all unique vals, that would be ok for just the first one
+  // not going to do above
+  
+  // this will only work up to the number 9
+  // fill array with 0s
+  let newArr = new Array(10).fill(0);
+  // walk through combined array and increment at index value
+  combinedArr.forEach(val => newArr[val]++);
+  let finalArr = [];
+  // add each count of 1 to new array
+  while (newArr.indexOf(1) !== -1) {
+    const index = newArr.indexOf(1);
+    finalArr.push(index);
+    newArr[index]++;
+  }
+  return finalArr;
+}
+
+
 // replaces value with newValue in array
 export function replaceAtValue(arr:number[], value:number, newValue:any) {
   if (value === newValue) {
