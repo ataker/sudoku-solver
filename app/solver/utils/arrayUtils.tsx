@@ -43,3 +43,12 @@ export function replaceAtValue(arr:number[], value:number, newValue:any) {
   return arr;
 
 }
+
+// find index of array that has value
+export function indexOfArrayOfArrayHasValue(val:number, ...arrs:number[][]) {
+  // only return one index
+  return arrs.findIndex((arr) => {
+    return arr.indexOf(val) !== -1;
+  })
+
+}

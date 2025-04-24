@@ -1,7 +1,8 @@
 import { 
   arrayDifference, 
   arrayUnique,
-  replaceAtValue 
+  replaceAtValue,
+  indexOfArrayOfArrayHasValue
 } from '../utils/arrayUtils';
 
 describe('arrayDifference', () => {
@@ -101,5 +102,28 @@ describe('replaceAtValue', () => {
           newValue = 0;
 
     expect(replaceAtValue(arr, value, newValue)).toStrictEqual([1, 0, 3, 4, 0, 6, 7, 8, 9]);
+  })
+})
+
+
+describe('indexOfArrayOfArrayHasValue', () => {
+  test('finds value', () => {
+    const arrs = [ [ 2, 5 ], [ 2, 3 ], [ 2, 5 ], [ 2, 5, 7 ] ],
+          value = 3;
+          
+    expect(indexOfArrayOfArrayHasValue(value, ...arrs)).toStrictEqual(1);
+  })
+
+  test('finds value', () => {
+    const arrs = [ [ 2, 5 ], [ 2, 3 ], [ 2, 5 ], [ 2, 5, 7 ] ],
+          value = 7;
+          
+    expect(indexOfArrayOfArrayHasValue(value, ...arrs)).toStrictEqual(3);
+  })
+  test('returns -1 if value is not found', () => {
+    const arrs = [ [ 2, 5 ], [ 2, 3 ], [ 2, 5 ], [ 2, 5, 7 ] ],
+          value = 1;
+          
+    expect(indexOfArrayOfArrayHasValue(value, ...arrs)).toStrictEqual(-1);
   })
 })
