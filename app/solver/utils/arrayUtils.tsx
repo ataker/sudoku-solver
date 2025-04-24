@@ -4,8 +4,10 @@ export function arrayDifference (arr1:number[], arr2:number[]) {
 }
 
 // return values unique in either array
-export function arrayUnique (arr1:number[], arr2:number[]) {
-  const combinedArr = [...arr1, ...arr2];
+export function arrayUnique (...arrs:number[][]) {
+  let combinedArr:number[] = [];
+  arrs.forEach((arr) => combinedArr.push(...arr))
+
   // some silly thoughts
   // sort array then step through, if arr[n] != arr[n+1]
   // with a step of 2

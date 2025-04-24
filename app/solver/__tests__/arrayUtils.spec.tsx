@@ -62,6 +62,14 @@ describe('arrayUnique', () => {
 
     expect(arrayUnique(arr1, arr2)).toStrictEqual([4,6,7]);
   })
+  test('returns any values unique in more than two arrays', () => {
+    const arr1 = [1, 2, 3, 4];
+    const arr2 = [1, 2, 3, 6, 7];
+    const arr3 = [1, 2, 9];
+
+    expect(arrayUnique(arr1, arr2, arr3)).toStrictEqual([4,6,7,9]);
+  })
+
   test('empty array when arrays are identical', () => {
     const arr1 = [1, 2, 3, 4, 5, 6, 7, 8, 9];
     const arr2 = [1, 2, 3, 4, 5, 6, 7, 8, 9];
