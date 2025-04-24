@@ -13,4 +13,4 @@ describe('nakedPair', () => {
 
     expect(nakedPair(value)).toStrictEqual(false);
   });
-}
+})

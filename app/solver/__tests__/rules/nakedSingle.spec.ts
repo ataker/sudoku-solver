@@ -20,4 +20,4 @@ describe('nakedSingle', () => {
 
     expect(nakedSingle(value)).toStrictEqual(false);
   });
-}
+})
