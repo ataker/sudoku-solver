@@ -1,8 +1,6 @@
-import { Text } from "react-native";
 import { SafeAreaView } from 'react-native-safe-area-context';
-import Row from './Row'
-import { SudokuState } from "./SudokuState";
-import Board from "./Board";
+import { SudokuState } from '@/solver/state/SudokuState';
+import Board from "./components/Board";
 
 const initState = [
   // good sudoku beginner puzzle 1

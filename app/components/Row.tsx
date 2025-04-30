@@ -4,7 +4,7 @@ import { StyleSheet } from "react-native";
 export default function Row({numVals}:{numVals:any[]}) {
   return (
   <div style={styles.row}> 
-    {numVals.map((numVal) => <NumberBox numVal={numVal}/>)}
+    {numVals.map((numVal, index) => <NumberBox numVal={numVal} key={index}/>)}
   </div>
   )
 }
