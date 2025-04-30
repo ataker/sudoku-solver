@@ -1,6 +1,24 @@
 import { Text } from "react-native";
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Row from './Row'
+import { SudokuState } from "./SudokuState";
+import Board from "./Board";
+
+const initState = [
+  // good sudoku beginner puzzle 1
+  [0,4,9,0,0,0,0,3,0],
+  [0,5,0,6,1,0,0,0,0],
+  [0,0,8,0,2,9,5,0,6],
+  [8,0,0,9,0,7,0,0,4],
+  [7,0,0,0,0,0,0,8,1],
+  [0,2,5,0,4,1,3,0,0],
+  [2,0,0,0,7,6,0,1,0],
+  [5,0,0,4,0,8,7,0,0],
+  [0,8,7,0,0,0,0,9,5]
+]
+
+let state = new SudokuState(initState);
+
 
 export default function Index() {
   return (
@@ -11,9 +29,7 @@ export default function Index() {
         alignItems: "center",
       }}
     >
-      <Row numVals={[4,2,1,0]}/>
-      <Row numVals={[3,1,0,8]}/>
-      <Text>Edit app/index.tsx to edit this screen.</Text>
+      <Board sudokuState={state}></Board>
     </SafeAreaView>
   );
 }

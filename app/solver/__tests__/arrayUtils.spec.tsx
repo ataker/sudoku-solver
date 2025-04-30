@@ -120,6 +120,7 @@ describe('indexOfArrayOfArrayHasValue', () => {
           
     expect(indexOfArrayOfArrayHasValue(value, ...arrs)).toStrictEqual(3);
   })
+  
   test('returns -1 if value is not found', () => {
     const arrs = [ [ 2, 5 ], [ 2, 3 ], [ 2, 5 ], [ 2, 5, 7 ] ],
           value = 1;

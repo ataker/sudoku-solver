@@ -14,7 +14,7 @@ export function getSquare(rows:number[][], top:number, left:number, size:number 
       wantedRows = rows.slice(top, top + size);
   if(top > rows[0].length) {
     throw Error(`top out of range`)
-    //should probably do the same for left and size
+    // todo should probably do the same for left and size
   }
   wantedRows.forEach((row => {
     square.push(row.slice(left, left + size))
