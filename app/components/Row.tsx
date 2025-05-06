@@ -1,17 +1,37 @@
 import NumberBox from './NumberBox'
-import { StyleSheet } from "react-native";
+import { NumberBoxProps } from './NumberBox'
+import { StyleSheet, View } from "react-native";
 
-export default function Row({numVals}:{numVals:any[]}) {
+
+export default function Row({numVals}:{numVals:NumberBoxProps[]}) {
+  const border = numVals[0].rowNum  === 2 || numVals[0].rowNum === 5 ? styles.borderBottom : '';
   return (
-  <div style={styles.row}> 
-    {numVals.map((numVal, index) => <NumberBox numVal={numVal} key={index}/>)}
-  </div>
+    <View style={[styles.row, border]}> 
+      {numVals.map((numVal, index) => 
+        <NumberBox 
+          numVal={numVal.numVal} 
+          possibleValues={numVal.possibleValues}
+          crossedValues={numVal.crossedValues} 
+          seededValue={numVal.seededValue}
+          rowNum={numVal.rowNum}
+          colNum={index}
+          key={index}
+        />
+      )}
+    </View>
   )
 }
 
 
 const styles = StyleSheet.create({
   row: {
-    display: 'flex'
-  }
+    display: 'flex',
+    flexDirection: 'row'
+  },
+
+  borderBottom: {
+    borderBottomWidth: 2,
+    borderBottomStyle: 'solid',
+
+  },
 });

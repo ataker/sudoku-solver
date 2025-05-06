@@ -3,8 +3,8 @@ export class Square {
   row: number;
   house: number;
   value?: number;
-  possibleValues: number[] = [];
-  crossedValues: number[] = [];
+  possibleValues: number[] = [1,2,5,8]; // temp vals for testing
+  crossedValues: number[] = [3, 9]; // temp vals for testing
   seededValue: boolean;
 
   constructor (column:number, row:number, value:number) {
