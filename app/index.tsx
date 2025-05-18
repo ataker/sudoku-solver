@@ -1,6 +1,7 @@
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { SudokuState } from '@/solver/state/SudokuState';
+import { useSudokuState } from '@/solver/state/SudokuState';
 import Board from "./components/Board";
+import { Button } from 'react-native';
 
 const initState = [
   // good sudoku beginner puzzle 1
@@ -13,12 +14,11 @@ const initState = [
   [2,0,0,0,7,6,0,1,0],
   [5,0,0,4,0,8,7,0,0],
   [0,8,7,0,0,0,0,9,5]
-]
-
-let state = new SudokuState(initState);
-
+];
 
 export default function Index() {
+  const {state, step} = useSudokuState(initState);
+
   return (
     <SafeAreaView
       style={{
@@ -28,6 +28,7 @@ export default function Index() {
       }}
     >
       <Board sudokuState={state}></Board>
+      <Button title='Step' onPress={step}></Button>
     </SafeAreaView>
   );
 }

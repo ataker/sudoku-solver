@@ -4,11 +4,11 @@ import { SudokuState } from "@/solver/state/SudokuState";
 import { NumberBoxProps } from './NumberBox'
 import { StyleSheet } from "react-native";
 
-export default function Board ({sudokuState}:{sudokuState:SudokuState}) {
+export default function Board ({sudokuState}:{sudokuState}) {
   return (
     <>
       {
-        sudokuState.getState().map((row, index) => {
+        sudokuState.map((row, index) => {
           let vals:NumberBoxProps[] = row.map((square:Square) => {
             let boxInfo : NumberBoxProps = {
               numVal: square.value,

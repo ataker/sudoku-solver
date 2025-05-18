@@ -1,4 +1,5 @@
 import { Text, StyleSheet, View, FlatList } from "react-native";
+import { useState } from "react";
 
 export interface NumberBoxProps {
   numVal?: number;
@@ -10,6 +11,11 @@ export interface NumberBoxProps {
 }
 
 export default function NumberBox({numVal, possibleValues, crossedValues, seededValue, rowNum, colNum = 0}:NumberBoxProps) {
+  const [possibleVals, setPossibleVals] = useState(possibleValues);
+  if (possibleVals !== possibleValues) {
+    setPossibleVals(possibleValues);
+  }
+  
   const POSSIBLE_NUMBERS = [1,2,3,4,5,6,7,8,9];
   const border = colNum === 2 || colNum === 5 ? styles.borderRight : '';
 
